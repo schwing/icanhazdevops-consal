@@ -7,9 +7,10 @@ addons:
     - salt
 
 before_install:
+  - sudo add-apt-repository ppa:saltstack/salt
   - sudo apt-get update
-  - curl -L http://bootstrap.saltstack.org | sudo sh -s -- git develop
-
+  - sudo apt-get install salt-minion
+ 
 install:
   # Copy these states
   - sudo mkdir -p /srv/salt/states
