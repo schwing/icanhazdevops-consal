@@ -12,10 +12,12 @@ before_install:
   - sudo apt-get install salt-minion
  
 install:
+  # Copy minion config
+  - sudo cp .travis/minion /etc/salt/minion
+  
   # Copy states
   - sudo mkdir -p /srv/salt
-  - sudo cp -r . /srv/salt/
-  - sudo cp .travis/minion /etc/salt/minion
+  - sudo cp -r .srv/salt/* /srv/salt/
 
   # Copy pillars
   - sudo mkdir /srv/pillar
