@@ -13,8 +13,8 @@ before_install:
  
 install:
   # Copy states
-  - sudo mkdir -p /srv/salt/states
-  - sudo cp -r . /srv/salt/states
+  - sudo mkdir -p /srv/salt
+  - sudo cp -r . /srv/salt/
   - sudo cp .travis/minion /etc/salt/minion
 
   # Copy pillars
