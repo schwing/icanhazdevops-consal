@@ -17,7 +17,7 @@ install:
   
   # Copy states
   - sudo mkdir -p /srv/salt
-  - sudo cp -r .srv/salt/* /srv/salt/
+  - sudo cp -r srv/salt/* /srv/salt/
 
   # Copy pillars
   - sudo mkdir /srv/pillar
