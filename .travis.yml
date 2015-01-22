@@ -7,7 +7,7 @@ addons:
     - salt
 
 before_install:
-  - sudo add-apt-repository ppa:saltstack/salt
+  - sudo add-apt-repository ppa:saltstack/salt -y
   - sudo apt-get update
   - sudo apt-get install salt-minion
  
