@@ -37,3 +37,5 @@ script:
 
   # Run states
   - sudo salt-call state.highstate --local
+
+  # Integration tests will go here eventually
