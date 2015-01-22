@@ -12,7 +12,7 @@ before_install:
   - sudo apt-get install salt-minion
  
 install:
-  # Copy these states
+  # Copy states
   - sudo mkdir -p /srv/salt/states
   - sudo cp -r . /srv/salt/states
   - sudo cp .travis/minion /etc/salt/minion
@@ -24,7 +24,7 @@ install:
   # Apply
   - sudo service salt-minion restart
 
-  # Additional debug help
+  # Additional debug help in case the restart fails
   - sudo cat /var/log/salt/*
 
   # See what kind of travis box you're on
@@ -32,4 +32,8 @@ install:
   - sudo salt-call grains.items --local
 
 script:
+  # Basic validation
   - sudo salt-call state.show_highstate --local --retcode-passthrough
+
+  # Run states
+  - sudo salt-call state.highstate --local
