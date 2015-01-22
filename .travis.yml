@@ -17,11 +17,11 @@ install:
   
   # Copy states
   - sudo mkdir -p /srv/salt
-  - sudo cp -r srv/salt/* /srv/salt/
+  - sudo cp -rv srv/salt/* /srv/salt/
 
   # Copy pillars
   - sudo mkdir /srv/pillar
-  - sudo cp -r .travis/pillar/* /srv/pillar/
+  - sudo cp -rv .travis/pillar/* /srv/pillar/
 
   # Apply
   - sudo service salt-minion restart
