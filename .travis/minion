@@ -3,7 +3,7 @@ id: travis
 file_client: local
 file_roots:
   base:
-    - /srv/salt
+    - /srv/salt/base
 pillar_roots:
   base:
-    - /srv/pillar
+    - /srv/pillar/base
