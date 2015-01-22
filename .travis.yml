@@ -38,6 +38,6 @@ script:
   - sudo salt-call state.show_highstate --local --retcode-passthrough
 
   # Run states
-  - sudo salt-call state.highstate --local
+  - sudo salt-call state.highstate --local --retcode-passthrough
 
   # Integration tests will go here eventually
