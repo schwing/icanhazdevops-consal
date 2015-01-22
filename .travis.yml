@@ -17,7 +17,7 @@ install:
   - sudo cp .travis/minion /etc/salt/minion
 
   # Copy pillars
-  - mkdir /srv/pillar
+  - sudo mkdir /srv/pillar
   - sudo cp -r .travis/pillar/* /srv/pillar/
 
   # Apply
