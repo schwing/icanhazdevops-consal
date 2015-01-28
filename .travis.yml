@@ -42,4 +42,5 @@ script:
   # Run states
   - sudo salt-call state.highstate --local --retcode-passthrough
 
-  # Integration tests will go here eventually
+  # Execute Serverspec tests
+  - bundle exec rake spec
