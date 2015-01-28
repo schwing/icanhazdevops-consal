@@ -41,5 +41,5 @@ script:
   # Run states
   - sudo salt-call state.highstate --local --retcode-passthrough
 
-  # Execute Serverspec tests
-  - bundle exec rake spec
+  # Execute Serverspec tests (must sudo to be able to check user files, etc.)
+  - sudo bundle exec rake spec
