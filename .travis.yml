@@ -42,7 +42,4 @@ script:
   # Run states
   - sudo salt-call state.highstate --local --retcode-passthrough
 
-  # Remove this
-  - ruby --version
-
   # Integration tests will go here eventually
