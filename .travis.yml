@@ -3,13 +3,13 @@
 language: ruby
 rvm:
   - 2.1.5
-gemfile: Gemfile
 
 addons:
   hosts:
     - salt
 
 before_install:
+  - gem update bundler
   - sudo add-apt-repository ppa:saltstack/salt -y
   - sudo apt-get update
   - sudo apt-get install salt-minion
