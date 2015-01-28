@@ -1,6 +1,8 @@
-language: python
-python:
-  - '2.7'
+# Saltstack is Python-based, but Python is significantly easier to manage than Ruby dependencies for Serverspec
+# Defer to Travis for management of Ruby dependencies as much as possible
+language: ruby
+rvm:
+  - 2.1.5
 
 addons:
   hosts:
@@ -10,7 +12,6 @@ before_install:
   - sudo add-apt-repository ppa:saltstack/salt -y
   - sudo apt-get update
   - sudo apt-get install salt-minion
-  - ruby-install --binary -M https://rubies.travis-ci.org/ ruby 2.1.1
 
 install:
   # Copy minion config
@@ -40,5 +41,8 @@ script:
 
   # Run states
   - sudo salt-call state.highstate --local --retcode-passthrough
+
+  # Remove this
+  - ruby --version
 
   # Integration tests will go here eventually
