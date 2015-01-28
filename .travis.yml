@@ -9,12 +9,10 @@ addons:
     - salt
 
 before_install:
-  - gem update bundler
   - sudo add-apt-repository ppa:saltstack/salt -y
   - sudo apt-get update
   - sudo apt-get install salt-minion
 
-install:
   # Copy minion config
   - sudo cp .travis/minion /etc/salt/minion
 
@@ -32,9 +30,9 @@ install:
   # Additional debug help in case the restart fails
   - sudo cat /var/log/salt/*
 
-  # See what kind of travis box you're on
-  # to help with making your states compatible with travis
-  - sudo salt-call grains.items --local
+# install:
+  # Install Serverspec from Gemfile -- this is automatic unless the install command is overridden
+  # - bundle install --jobs=3 --retry=3 --deployment
 
 script:
   # Basic validation
