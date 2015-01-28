@@ -10,11 +10,11 @@ before_install:
   - sudo add-apt-repository ppa:saltstack/salt -y
   - sudo apt-get update
   - sudo apt-get install salt-minion
- 
+
 install:
   # Copy minion config
   - sudo cp .travis/minion /etc/salt/minion
-  
+
   # Copy states
   - sudo mkdir -p /srv/salt
   - sudo cp -rv srv/salt/* /srv/salt/
@@ -39,5 +39,8 @@ script:
 
   # Run states
   - sudo salt-call state.highstate --local --retcode-passthrough
+
+  # Ruby version?
+  - ruby --version
 
   # Integration tests will go here eventually
