@@ -10,6 +10,7 @@ before_install:
   - sudo add-apt-repository ppa:saltstack/salt -y
   - sudo apt-get update
   - sudo apt-get install salt-minion
+  - ruby-install --binary -M https://rubies.travis-ci.org/ ruby 2.1.1
 
 install:
   # Copy minion config
@@ -39,8 +40,5 @@ script:
 
   # Run states
   - sudo salt-call state.highstate --local --retcode-passthrough
-
-  # Ruby version?
-  - ruby --version
 
   # Integration tests will go here eventually
