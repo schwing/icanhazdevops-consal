@@ -18,7 +18,7 @@ before_install:
 script:
 - sudo salt-call state.show_highstate --local --retcode-passthrough
 - sudo salt-call state.highstate --local --retcode-passthrough
-- sudo cat /home/travis/.bashrc
+- sudo source /home/travis/.bashrc
 - sudo bundle exec rake spec
 notifications:
   slack:
