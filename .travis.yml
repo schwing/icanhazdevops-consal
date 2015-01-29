@@ -1,45 +1,24 @@
-# Saltstack is Python-based, but Python is significantly easier to manage than Ruby dependencies for Serverspec
-# Defer to Travis for management of Ruby dependencies as much as possible
 language: ruby
 rvm:
-  - 2.1.5
-
+- 2.1.5
 addons:
   hosts:
-    - salt
-
+  - salt
 before_install:
-  - sudo add-apt-repository ppa:saltstack/salt -y
-  - sudo apt-get update
-  - sudo apt-get install salt-minion
-
-  # Copy minion config
-  - sudo cp .travis/minion /etc/salt/minion
-
-  # Copy states
-  - sudo mkdir -p /srv/salt
-  - sudo cp -rv srv/salt/* /srv/salt/
-
-  # Copy pillars
-  - sudo mkdir /srv/pillar
-  - sudo cp -rv .travis/pillar/* /srv/pillar/
-
-  # Apply
-  - sudo service salt-minion restart
-
-  # Additional debug help in case the restart fails
-  - sudo cat /var/log/salt/*
-
-# install:
-  # Install Serverspec from Gemfile -- this is automatic unless the install command is overridden
-  # - bundle install --jobs=3 --retry=3 --deployment
-
+- sudo add-apt-repository ppa:saltstack/salt -y
+- sudo apt-get update
+- sudo apt-get install salt-minion
+- sudo cp .travis/minion /etc/salt/minion
+- sudo mkdir -p /srv/salt
+- sudo cp -rv srv/salt/* /srv/salt/
+- sudo mkdir /srv/pillar
+- sudo cp -rv .travis/pillar/* /srv/pillar/
+- sudo service salt-minion restart
+- sudo cat /var/log/salt/*
 script:
-  # Basic validation
-  - sudo salt-call state.show_highstate --local --retcode-passthrough
-
-  # Run states
-  - sudo salt-call state.highstate --local --retcode-passthrough
-
-  # Execute Serverspec tests (must sudo to be able to check user files, etc.)
-  - sudo bundle exec rake spec
+- sudo salt-call state.show_highstate --local --retcode-passthrough
+- sudo salt-call state.highstate --local --retcode-passthrough
+- sudo bundle exec rake spec
+notifications:
+  slack:
+    secure: qTuH2CygEtqoG+6l08F6eKFViSYTbzn6ct7VWvTceSUjMoeoA6q4WzE2jh3EGpQhTcAenl4JoBFz3l4iO48z5ATQ340dMVqr5O46I5xK7YA00EHuOSP8JVpwubkTxBnDoD3/MB7+KDX4mFFpgTrlRh0ZFdMeF6y/+jDybcbdkcA=
