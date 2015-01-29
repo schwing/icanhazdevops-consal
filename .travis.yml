@@ -18,6 +18,7 @@ before_install:
 script:
 - sudo salt-call state.show_highstate --local --retcode-passthrough
 - sudo salt-call state.highstate --local --retcode-passthrough
+- sudo ruby --version
 - sudo bundle exec rake spec
 notifications:
   slack:
