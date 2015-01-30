@@ -6,7 +6,7 @@ addons:
   - salt
 before_install:
 - sudo ln -s /home/travis/.rvm /root/.rvm
-- sudo echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' >> /root/.bashrc
+- sudo echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' >> /root/.bash_profile
 - sudo add-apt-repository ppa:saltstack/salt -y
 - sudo apt-get update
 - sudo apt-get install salt-minion
