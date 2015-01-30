@@ -1,6 +1,8 @@
 language: ruby
 rvm:
 - 2.1.5
+env:
+  - rvmsudo_secure_path=1
 addons:
   hosts:
   - salt
