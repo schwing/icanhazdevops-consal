@@ -21,5 +21,6 @@
   file.managed:
     - name: /etc/sudoers.d/{{user}}
     - contents: "{{user}} ALL=(ALL) NOPASSWD: ALL"
+    - mode: 0440
   {% endif %}
 {% endfor %}
