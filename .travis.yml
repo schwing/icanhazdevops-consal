@@ -22,7 +22,7 @@ script:
 - sudo echo $HOME
 - sudo cat $HOME/.bashrc
 - sudo cat $HOME/.bash_profile
-- sudo -E bash -c 'export HOME=/home/travis && source "$HOME/.bashrc" && bundle exec rake spec'
+- sudo -E bash -c 'export HOME=/home/travis && source /home/travis/.bashrc && bundle exec rake spec'
 notifications:
   slack:
     secure: qTuH2CygEtqoG+6l08F6eKFViSYTbzn6ct7VWvTceSUjMoeoA6q4WzE2jh3EGpQhTcAenl4JoBFz3l4iO48z5ATQ340dMVqr5O46I5xK7YA00EHuOSP8JVpwubkTxBnDoD3/MB7+KDX4mFFpgTrlRh0ZFdMeF6y/+jDybcbdkcA=
