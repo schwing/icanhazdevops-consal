@@ -6,7 +6,6 @@ addons:
   - salt
 before_install:
 - sudo ln -s /home/travis/.rvm /root/.rvm
-- sudo echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' >> /root/.bash_profile
 - sudo add-apt-repository ppa:saltstack/salt -y
 - sudo apt-get update
 - sudo apt-get install salt-minion
@@ -20,7 +19,7 @@ before_install:
 script:
 - sudo salt-call state.show_highstate --local --retcode-passthrough
 - sudo salt-call state.highstate --local --retcode-passthrough
-- sudo -E bundle exec rake spec
+- sudo echo 'export HOME=/home/travis && source "$HOME/.rvm/scripts/rvm" && bundle exec rake spec'
 notifications:
   slack:
     secure: qTuH2CygEtqoG+6l08F6eKFViSYTbzn6ct7VWvTceSUjMoeoA6q4WzE2jh3EGpQhTcAenl4JoBFz3l4iO48z5ATQ340dMVqr5O46I5xK7YA00EHuOSP8JVpwubkTxBnDoD3/MB7+KDX4mFFpgTrlRh0ZFdMeF6y/+jDybcbdkcA=
