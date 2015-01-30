@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe user('schwing') do
+describe user('schwing'), :sudo => true do
   it { should exist }
   it { should have_home_directory '/home/schwing' }
   it { should have_login_shell '/bin/bash' }
