@@ -9,5 +9,6 @@ end
 
 describe file('/etc/sudoers.d/schwing') do
   it { should be_file }
+  it { should be_mode 440 }
   its(:content) { should match 'schwing ALL=(ALL) NOPASSWD: ALL' }
 end
