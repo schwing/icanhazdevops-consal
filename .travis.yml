@@ -19,6 +19,9 @@ before_install:
 script:
 - sudo salt-call state.show_highstate --local --retcode-passthrough
 - sudo salt-call state.highstate --local --retcode-passthrough
+- sudo echo $HOME
+- sudo cat $HOME/.bashrc
+- sudo cat $HOME/.bash_profile
 - sudo -E bash -c 'export HOME=/home/travis && source "$HOME/.bashrc" && bundle exec rake spec'
 notifications:
   slack:
