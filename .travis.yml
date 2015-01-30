@@ -19,7 +19,7 @@ script:
 - sudo salt-call state.show_highstate --local --retcode-passthrough
 - sudo salt-call state.highstate --local --retcode-passthrough
 - sudo source /home/travis/.bashrc
-- sudo bundle exec rake spec
+- sudo 'export HOME=/home/travis && source /home/travis/.bashrc && bundle exec rake spec'
 notifications:
   slack:
     secure: qTuH2CygEtqoG+6l08F6eKFViSYTbzn6ct7VWvTceSUjMoeoA6q4WzE2jh3EGpQhTcAenl4JoBFz3l4iO48z5ATQ340dMVqr5O46I5xK7YA00EHuOSP8JVpwubkTxBnDoD3/MB7+KDX4mFFpgTrlRh0ZFdMeF6y/+jDybcbdkcA=
