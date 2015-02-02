@@ -12,7 +12,7 @@ before_install:
 - sudo apt-get install salt-minion
 - sudo cp .travis/minion /etc/salt/minion
 - sudo mkdir -p /srv/salt
-- sudo cp -rv srv/salt/* /srv/salt/
+- sudo cp -rv base /srv/salt/
 - sudo mkdir /srv/pillar
 - sudo cp -rv .travis/pillar/* /srv/pillar/
 - sudo service salt-minion restart
