@@ -15,7 +15,7 @@ before_install:
 - sudo apt-get update
 - sudo apt-get install salt-minion
 - sudo cp .travis/minion /etc/salt/minion
-- echo id: $minion_id | sudo tee -a /etc/salt/minion
+- "echo id: $minion_id | sudo tee -a /etc/salt/minion"
 - sudo mkdir -p /srv/salt
 - sudo cp -rv base /srv/salt/
 - sudo mkdir /srv/pillar
