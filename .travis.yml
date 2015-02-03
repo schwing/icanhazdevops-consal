@@ -2,7 +2,11 @@ language: ruby
 rvm:
 - 2.1.5
 env:
-  - rvmsudo_secure_path=1
+  global:
+    - rvmsudo_secure_path=1
+  matrix:
+    - minion_id=common
+    - minion_id=webhead
 addons:
   hosts:
   - salt
@@ -11,6 +15,7 @@ before_install:
 - sudo apt-get update
 - sudo apt-get install salt-minion
 - sudo cp .travis/minion /etc/salt/minion
+- sudo echo $minion_id >> /etc/salt/minion
 - sudo mkdir -p /srv/salt
 - sudo cp -rv base /srv/salt/
 - sudo mkdir /srv/pillar
