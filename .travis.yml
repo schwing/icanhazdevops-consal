@@ -2,8 +2,7 @@ language: ruby
 rvm:
 - 2.1.5
 env:
-  - rvmsudo_secure_path=1
-  - TARGET_HOST=localhost
+  - rvmsudo_secure_path=1 TARGET_HOST=localhost
 addons:
   hosts:
   - salt
