@@ -27,7 +27,7 @@ namespace :serverspec do
     desc "Run serverspec suite #{suite}"
     ServerspecTask.new(suite.to_sym) do |t|
       t.target = ENV['TARGET_HOST'] || ENV['target_host']
-      t.ruby_opts = "-I test/integration/common"
+      t.ruby_opts = "-I test/integration/common/serverspec"
       t.pattern = "test/integration/common/serverspec/*_spec.rb,#{suite}/serverspec/*_spec.rb"
     end
   end
