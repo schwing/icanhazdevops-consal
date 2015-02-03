@@ -2,8 +2,7 @@ language: ruby
 rvm:
 - 2.1.5
 env:
-  global:
-    - rvmsudo_secure_path=1 TARGET_HOST=localhost
+  - rvmsudo_secure_path=1
 addons:
   hosts:
   - salt
@@ -21,7 +20,7 @@ before_install:
 script:
 - sudo salt-call state.show_highstate --local --retcode-passthrough
 - sudo salt-call state.highstate --local --retcode-passthrough
-- rvmsudo bundle exec rake serverspec
+- rvmsudo bundle exec rake serverspec target_host=localhost
 notifications:
   slack:
     secure: qTuH2CygEtqoG+6l08F6eKFViSYTbzn6ct7VWvTceSUjMoeoA6q4WzE2jh3EGpQhTcAenl4JoBFz3l4iO48z5ATQ340dMVqr5O46I5xK7YA00EHuOSP8JVpwubkTxBnDoD3/MB7+KDX4mFFpgTrlRh0ZFdMeF6y/+jDybcbdkcA=
