@@ -20,7 +20,10 @@ provisioner:
   state_top:
     base:
       '*':
-        - base.users
+        - base.common.users
+      '*webhead*':
+        - base.webhead.nginx
 
 suites:
-  - name: default
+  - name: common
+  - name: webhead

@@ -1,3 +1,5 @@
 base:
   '*':
-    - users
+    - common.users
+  '*webhead*':
+    - webhead.nginx
