@@ -1,0 +1,26 @@
+---
+driver:
+  name: vagrant
+
+platforms:
+  - name: ubuntu-12.04
+
+provisioner:
+  name: salt_solo
+  state_collection: true
+  # This is a stub so kitchen doesn't bail when no pillars are defined
+  pillars:
+    top.sls:
+      stubbing_for_file
+  pillars-from-files:
+    top.sls:
+      '.travis/pillar/base/top.sls'
+    users.sls:
+      '.travis/pillar/base/users.sls'
+  state_top:
+    base:
+      '*':
+        - base.users
+
+suites:
+  - name: default
