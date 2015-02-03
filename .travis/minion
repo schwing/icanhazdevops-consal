@@ -1,5 +1,3 @@
-id: travis
-
 file_client: local
 file_roots:
   base:

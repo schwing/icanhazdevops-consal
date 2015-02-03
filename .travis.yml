@@ -2,7 +2,11 @@ language: ruby
 rvm:
 - 2.1.5
 env:
-  - rvmsudo_secure_path=1
+  global:
+    - rvmsudo_secure_path=1
+  matrix:
+    - minion_id=common
+    - minion_id=webhead
 addons:
   hosts:
   - salt
@@ -11,16 +15,16 @@ before_install:
 - sudo apt-get update
 - sudo apt-get install salt-minion
 - sudo cp .travis/minion /etc/salt/minion
+- "echo id: $minion_id | sudo tee -a /etc/salt/minion"
 - sudo mkdir -p /srv/salt
 - sudo cp -rv base /srv/salt/
 - sudo mkdir /srv/pillar
 - sudo cp -rv .travis/pillar/* /srv/pillar/
 - sudo service salt-minion restart
-- sudo cat /var/log/salt/*
 script:
 - sudo salt-call state.show_highstate --local --retcode-passthrough
 - sudo salt-call state.highstate --local --retcode-passthrough
-- rvmsudo bundle exec rake serverspec target_host=localhost
+- "rvmsudo bundle exec rake serverspec target_host=localhost suite=$minion_id"
 notifications:
   slack:
     secure: qTuH2CygEtqoG+6l08F6eKFViSYTbzn6ct7VWvTceSUjMoeoA6q4WzE2jh3EGpQhTcAenl4JoBFz3l4iO48z5ATQ340dMVqr5O46I5xK7YA00EHuOSP8JVpwubkTxBnDoD3/MB7+KDX4mFFpgTrlRh0ZFdMeF6y/+jDybcbdkcA=

@@ -4,7 +4,11 @@ require 'rspec/core/rake_task'
 task :serverspec => 'serverspec:all'
 task :default => :serverspec
 
-suites = Dir.glob('test/integration/*').select{|entry| File.directory?(entry) }
+if ENV['suite']
+  suites = ['test/integration/' + ENV['suite']]
+else
+  suites = Dir.glob('test/integration/*').select{|entry| File.directory?(entry) }
+end
 
 class ServerspecTask < RSpec::Core::RakeTask
   attr_accessor :target
@@ -27,8 +31,9 @@ namespace :serverspec do
     desc "Run serverspec suite #{suite}"
     ServerspecTask.new(suite.to_sym) do |t|
       t.target = ENV['TARGET_HOST'] || ENV['target_host']
-      t.ruby_opts = "-I #{suite}/serverspec"
-      t.pattern = "#{suite}/serverspec/#{t.target}/*_spec.rb"
+      t.ruby_opts = "-I test/integration/common/serverspec"
+      #t.pattern = "test/integration/common/serverspec/*_spec.rb,#{suite}/serverspec/*_spec.rb"
+      t.pattern = "#{suite}/serverspec/*_spec.rb"
     end
   end
 end
