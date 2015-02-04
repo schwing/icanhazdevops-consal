@@ -4,6 +4,6 @@ sysadminypkgs:
       - vim
       - screen
       - python
-      - ruby
+      - ruby1.9.3
       - curl
       - git
