@@ -1,3 +1,4 @@
 gems:
   gem.installed:
-    - fog
+    - gems:
+      - fog
