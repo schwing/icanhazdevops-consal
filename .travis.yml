@@ -3,7 +3,7 @@ rvm:
 - 2.1.5
 env:
   global:
-    - rvmsudo_secure_path=1
+    - rvmsudo_secure_path=0
   matrix:
     - minion_id=common
     - minion_id=webhead
