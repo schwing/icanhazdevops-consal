@@ -1,8 +1,9 @@
 sysadminypkgs:
   pkg.installed:
-    - vim
-    - screen
-    - python
-    - ruby
-    - curl
-    - git
+    - pkgs:
+      - vim
+      - screen
+      - python
+      - ruby
+      - curl
+      - git
