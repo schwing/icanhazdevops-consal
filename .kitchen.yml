@@ -21,6 +21,7 @@ provisioner:
     base:
       '*':
         - base.common.users
+        - base.common.packages
       '*webhead*':
         - base.webhead.nginx
 
