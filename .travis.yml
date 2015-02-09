@@ -24,8 +24,9 @@ before_install:
 script:
 - sudo salt-call state.show_highstate --local --retcode-passthrough
 - rvmsudo salt-call state.highstate --local --retcode-passthrough
-- which gem
-- ruby -v
+- rvmsudo which gem
+- rvmsudo ruby -v
+- rvmsudo gem list --local
 - "rvmsudo bundle exec rake serverspec target_host=localhost suite=$minion_id"
 notifications:
   slack:
