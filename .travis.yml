@@ -11,7 +11,6 @@ addons:
   hosts:
   - salt
 before_install:
-- sudo cp .travis/rvm.sh /etc/profile.d/rvm.sh
 - sudo add-apt-repository ppa:saltstack/salt -y
 - sudo apt-get update
 - sudo apt-get install salt-minion
@@ -24,7 +23,7 @@ before_install:
 - sudo service salt-minion restart
 script:
 - sudo salt-call state.show_highstate --local --retcode-passthrough
-- rvmsudo salt-call state.highstate --local --retcode-passthrough
+- sudo salt-call state.highstate --local --retcode-passthrough
 - "rvmsudo bundle exec rake serverspec target_host=localhost suite=$minion_id"
 notifications:
   slack:
