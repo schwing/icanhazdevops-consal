@@ -24,7 +24,9 @@ before_install:
 script:
 - rvmsudo salt-call state.show_highstate --local --retcode-passthrough
 - rvmsudo salt-call state.highstate --local --retcode-passthrough
-- "sudo -i echo $GEM_HOME"
+- sudo mv /var/lib/gems/1.9.1/gems /var/lib/gems/1.9.1/gems.b
+- sudo ln -sf /home/travis/.rvm/gems/ruby-2.1.5 /var/lib/gems/1.9.1/gems
+- find /home/travis/.rvm/gems/ruby-2.1.5
 - "rvmsudo bundle exec rake serverspec target_host=localhost suite=$minion_id"
 notifications:
   slack:
