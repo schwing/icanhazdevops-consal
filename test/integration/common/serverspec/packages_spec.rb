@@ -16,7 +16,7 @@ packages.each do |pkg|
 end
 
 # Skip this check when in Travis CI
-if ENV['TRAVIS'] do
+if ENV['TRAVIS']
   puts 'Travis CI environment detected, skipping gem tests.'
 else
   describe package('fog') do
