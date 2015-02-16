@@ -13,6 +13,7 @@ describe port(80) do
   it { should be_listening }
 end
 
+# Test for the hostname in the default site output
 describe command('curl -s localhost') do
-  its(:stdout) { should match 'Welcome to nginx!' }
+  its(:stdout) { should match Socket.gethostname }
 end
