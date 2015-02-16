@@ -1,2 +1,3 @@
-fog:
-  gem.installed
+install_fog:
+  gem.installed:
+    - name: fog
