@@ -19,3 +19,15 @@ disable_default:
     - name: /etc/nginx/sites-enabled/default
     - listen_in:
       - service: service_nginx
+
+create_docroot:
+  file.directory:
+    - name: /srv/www
+
+create_index:
+  file.managed:
+    - name: /srv/www/index.html
+    - source: salt://files/nginx/index.html
+    - template: jinja
+  require:
+    - file: create_docroot
