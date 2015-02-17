@@ -5,3 +5,4 @@ base:
     - common.gems
   '*webhead*':
     - webhead.nginx
+    - webhead.site_content

@@ -25,6 +25,7 @@ provisioner:
         - base.common.gems
       '*webhead*':
         - base.webhead.nginx
+        - base.webhead.site_content
 
 suites:
   - name: common
