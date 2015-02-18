@@ -24,6 +24,7 @@ before_install:
 - sudo service salt-minion restart
 script:
 - rvmsudo salt-call state.show_highstate --local --retcode-passthrough
+- rvmsudo salt-call -g --local
 - rvmsudo salt-call state.highstate --local --retcode-passthrough
 - "rvmsudo bundle exec rake serverspec target_host=localhost suite=$minion_id"
 notifications:
