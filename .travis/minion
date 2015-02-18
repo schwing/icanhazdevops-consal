@@ -5,5 +5,3 @@ file_roots:
 pillar_roots:
   base:
     - /srv/pillar/base
-grains:
-  host: icanhazdevops
