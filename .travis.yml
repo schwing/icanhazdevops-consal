@@ -18,7 +18,7 @@ before_install:
 - "echo id: $minion_id | sudo tee -a /etc/salt/minion"
 - sudo mkdir -p /srv/salt
 - sudo cp -rv base /srv/salt/
-- sudo cp -rv files /srv/salt/
+- sudo cp -rv files /srv/salt/base/
 - sudo mkdir /srv/pillar
 - sudo cp -rv .travis/pillar/* /srv/pillar/
 - sudo service salt-minion restart
