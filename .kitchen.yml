@@ -20,15 +20,24 @@ provisioner:
   state_top:
     base:
       '*':
-        - base.common.users
-        - base.common.packages
-        - base.common.gems
 
 suites:
   - name: common
+    provisioner:
+      state_top:
+        base:
+          '*':
+            - base.common.users
+            - base.common.packages
+            - base.common.gems
+
   - name: webhead
-    state_top:
-      base:
-        '*':
-          - base.webhead.nginx
-          - base.webhead.site_content
+    provisioner:
+      state_top:
+        base:
+          '*':
+            - base.common.users
+            - base.common.packages
+            - base.common.gems
+            - base.webhead.nginx
+            - base.webhead.site_content
