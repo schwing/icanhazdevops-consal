@@ -8,6 +8,7 @@ packages = %w(
   curl
   git
   build-essential
+  zlib1g-dev
 )
 
 packages.each do |pkg|

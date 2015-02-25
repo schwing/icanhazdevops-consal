@@ -8,3 +8,4 @@ sysadminypkgs:
       - curl
       - git
       - build-essential
+      - zlib1g-dev
