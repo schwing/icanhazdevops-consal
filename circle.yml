@@ -15,7 +15,7 @@ dependencies:
 
 test:
   override:
-    - bundle exec rake integration:cloud:verify
+    - bundle exec rake integration:cloud:verify:
         timeout: 600
   post:
     - bundle exec rake integration:cloud:destroy
