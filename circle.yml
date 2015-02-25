@@ -15,8 +15,6 @@ dependencies:
 
 test:
   override:
-    - bundle exec rake spec:
-        timeout: 120
     - bundle exec rake integration:ci:verify:
         timeout: 600
   post:
