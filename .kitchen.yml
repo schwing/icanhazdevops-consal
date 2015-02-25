@@ -23,10 +23,11 @@ provisioner:
         - base.common.users
         - base.common.packages
         - base.common.gems
-      '*webhead*':
-        - base.webhead.nginx
-        - base.webhead.site_content
 
 suites:
   - name: common
   - name: webhead
+    state_top:
+      '*webhead*':
+        - base.webhead.nginx
+        - base.webhead.site_content
