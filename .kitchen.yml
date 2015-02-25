@@ -28,6 +28,7 @@ suites:
   - name: common
   - name: webhead
     state_top:
-      '*webhead*':
-        - base.webhead.nginx
-        - base.webhead.site_content
+      base:
+        '*':
+          - base.webhead.nginx
+          - base.webhead.site_content
