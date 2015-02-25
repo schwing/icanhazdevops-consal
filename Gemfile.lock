@@ -94,6 +94,7 @@ GEM
       fog (~> 1.18)
       test-kitchen (~> 1.1)
       unf
+    kitchen-salt (0.0.19)
     mime-types (2.4.3)
     mini_portile (0.6.0)
     mixlib-shellout (2.0.1)
@@ -145,6 +146,7 @@ PLATFORMS
 
 DEPENDENCIES
   kitchen-rackspace
+  kitchen-salt
   rake
   serverspec
   test-kitchen
