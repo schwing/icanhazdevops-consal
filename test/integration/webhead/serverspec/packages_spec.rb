@@ -7,6 +7,7 @@ packages = %w(
   ruby1.9.3
   curl
   git
+  build-essential
 )
 
 packages.each do |pkg|
