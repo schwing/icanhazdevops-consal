@@ -1,5 +1,6 @@
 require 'rake'
 require 'rspec/core/rake_task'
+require 'kitchen'
 
 # Integration tests - kitchen.ci
 desc 'Run Test Kitchen'
